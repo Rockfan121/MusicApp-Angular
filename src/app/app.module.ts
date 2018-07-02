@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialLayoutComponent } from './material-layout/material-layout.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 
 // Material 2
 import 'hammerjs';
@@ -48,7 +51,8 @@ interface StoreType {
     AboutComponent,
     HomeComponent,
     NoContentComponent,
-    XLargeDirective
+    XLargeDirective,
+    MaterialLayoutComponent
   ],
   /**
    * Import Angular's modules.
@@ -58,6 +62,12 @@ interface StoreType {
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
     RouterModule.forRoot(ROUTES, {
       useHash: Boolean(history.pushState) === false,
       preloadingStrategy: PreloadAllModules
