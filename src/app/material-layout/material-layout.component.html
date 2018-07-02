@@ -1,29 +1,49 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav
-    #drawer
-    class="sidenav"
-    fixedInViewport="true"
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="!(isHandset$ | async)">
-    <mat-toolbar color="primary">Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
+<div class="layout">
+
+<div class="appBar">
+<mat-toolbar color="primary">
       <button
         type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        mat-icon-button>
+        <mat-icon
+        class="iconFont">music_note</mat-icon>
       </button>
-      <span>Application Title</span>
+      <button
+        type="button"
+        mat-icon-button
+        class="rightIcon">
+      <mat-icon
+      class="iconFont">power_settings_new</mat-icon>
+      </button>
     </mat-toolbar>
+  </div>
+
+<mat-sidenav-container class="belowBar">
+  <mat-sidenav
+    #drawer
+    mode="side"
+    class="menu"
+    fixedInViewport="false"
+    disableClose="true"
+    opened="true">
+    <mat-nav-list>
+      <a mat-list-item
+      class="menuMainItem">Repository</a>
+      <mat-divider></mat-divider>
+      <submenu
+       [children]="playlists"
+       [name]="playlistsName"
+       [itemName]="playlistsItem"
+      ></submenu>
+      <submenu
+       [children]="artists"
+       [name]="artistsName"
+       [itemName]="artistsItem"
+      ></submenu>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="container">
+    Main content
   </mat-sidenav-content>
 </mat-sidenav-container>
+</div>

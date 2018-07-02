@@ -1,0 +1,24 @@
+<div>
+        <mat-form-field
+          class="search"
+        >
+          <mat-label 
+            class="searchLabel"
+          >
+            {{ name }}
+          </mat-label>
+          <input 
+            matInput 
+            [placeholder]="searchText"
+            >
+        </mat-form-field>
+        <div class="subList">
+          <a mat-list-item *ngFor="let item of children">{{ item }}</a>
+        </div>
+        <mat-divider class="smallDivider"></mat-divider>
+        <a mat-list-item href="#">
+          <mat-icon class="addIcon">add_circle_outline</mat-icon>
+          Add {{ itemName }}
+        </a>
+        <mat-divider></mat-divider>
+      </div>

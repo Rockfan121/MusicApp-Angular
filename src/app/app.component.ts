@@ -4,7 +4,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { environment } from 'environments/environment';
 import { AppState } from './app.service';
-import { MaterialLayoutComponent } from 'app/material-layout/material-layout-component';
 
 /**
  * App Component

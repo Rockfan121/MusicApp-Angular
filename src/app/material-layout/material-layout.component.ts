@@ -3,10 +3,14 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import { ARTISTS } from 'assets/mock-data/artists';
+import { PLAYLISTS } from 'assets/mock-data/playlists';
+import { SubmenuComponent } from './submenu/submenu-component';
+
 @Component({
   selector: 'material-layout',
   templateUrl: './material-layout.component.html',
-  styleUrls: ['./material-layout.component.css']
+  styleUrls: ['./material-layout.component.scss']
 })
 export class MaterialLayoutComponent {
 
@@ -14,6 +18,14 @@ export class MaterialLayoutComponent {
     .pipe(
       map(result => result.matches)
     );
+
+  playlists = PLAYLISTS;
+  artists = ARTISTS;
+
+  playlistsName = "Playlists";
+  playlistsItem = "playlist";
+  artistsName = "Artists";
+  artistsItem = "artist";
     
   constructor(private breakpointObserver: BreakpointObserver) {}
   

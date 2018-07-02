@@ -5,8 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialLayoutComponent } from './material-layout/material-layout.component';
+import { SubmenuComponent } from './material-layout/submenu/submenu.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatDividerModule, MatAutocompleteModule, MatInputModule, MatTabsModule, MatDialogModule, MatSnackBarModule, MatTooltipModule, MatFormFieldModule } from '@angular/material';
 
 // Material 2
 import 'hammerjs';
@@ -52,7 +53,8 @@ interface StoreType {
     HomeComponent,
     NoContentComponent,
     XLargeDirective,
-    MaterialLayoutComponent
+    MaterialLayoutComponent,
+    SubmenuComponent
   ],
   /**
    * Import Angular's modules.
@@ -68,6 +70,15 @@ interface StoreType {
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatFormFieldModule,
+    MatDividerModule, 
+    MatAutocompleteModule, 
+    MatInputModule, 
+    MatTabsModule, 
+    MatDialogModule, 
+    MatSnackBarModule, 
+    MatTooltipModule,
+
     RouterModule.forRoot(ROUTES, {
       useHash: Boolean(history.pushState) === false,
       preloadingStrategy: PreloadAllModules

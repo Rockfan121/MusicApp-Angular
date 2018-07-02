@@ -1,0 +1,25 @@
+export const ARTISTS = [
+	  'Led Zeppelin',
+      'Deep Purple',
+      'Lefty and the tin can sellers',
+      'Nickelback',
+      'The Beatles',
+      'Celine Dion',
+      'Enya',
+      'Luxtorpeda',
+      'Skillet',
+      'Red',
+      'Yes',
+      'Amy Diamond',
+      'Kansas',
+      'Boston',
+      'Peter Gabriel',
+      'Genesis',
+      'Threshold',
+      'Dream Theater',
+      'Alter Bridge',
+      'Jim Hendrix',
+      'Undish',
+      'Porcupine Tree'
+]
+	
