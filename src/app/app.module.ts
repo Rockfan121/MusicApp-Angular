@@ -5,6 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Material 2
+import 'hammerjs';
+
 /*
  * Platform and Environment providers/directives/pipes
  */
