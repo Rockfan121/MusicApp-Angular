@@ -19,16 +19,13 @@ nav a {
 }
 
 @import '~@angular/material/_theming';
+@import './musicTheme.scss';
 
 // NOTE: Theming is currently experimental and not yet publicly released!
 
 @include mat-core();
 
-  $dark-primary: mat-palette($mat-green, 500, 100, 700);
-  $dark-accent:  mat-palette($mat-grey, 500, 300, 900);
-  $dark-warn:    mat-palette($mat-lime, A400, A100, A800);
-
-  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+  
 
   @include angular-material-theme($dark-theme);
 

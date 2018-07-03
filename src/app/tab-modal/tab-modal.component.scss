@@ -1,0 +1,52 @@
+@import '~@angular/material/theming';
+@import 'styles/musicTheme.scss';
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+ // background-size: cover;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border-radius:50%;
+}
+
+	.inputsContainer {
+		clear: both;
+		width: 100%;
+		margin-top: 10px;
+	}
+
+	.inputsDiv {
+		float: left;
+		width: 60%;
+		display: inline-block;
+	}
+
+	.input {
+		display: block;
+	}
+
+	.avatarDiv {
+		width: 40%;
+		display: inline-block;
+	}
+
+	.textarea {
+		float: left;
+		margin: 10px;
+		width: calc(50% - 20px);
+		display: inline-block;
+	}
+	.textareaInput{
+		border-width: 1px;
+		border-color: #FAFAFA;
+		border-style: dotted;
+	}
+
+	.buttons {
+		//paddingLeft:'10px',
+		float: right;
+		margin-left: auto;
+		margin-right:10px;
+		background-color: mat-color($dark-primary);
+	}

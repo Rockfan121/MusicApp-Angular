@@ -1,87 +1,100 @@
 <h2 mat-dialog-title>Upload file</h2>
 <mat-dialog-content>
-  <mat-tab-group>
+  <mat-tab-group
+  mat-stretch-tabs
+  	backgroundColor="primary">
     <mat-tab label="Basic info">
    		<div class="inputsContainer">
-   			<mat-form-field
-	          class=""
-	        >
-	          <mat-label 
-	            class=""
-	          >
-	            Track title
-	          </mat-label>
-	          <input 
-	            matInput 
-	            >
-	        </mat-form-field>
+   			<div class="inputsDiv">
+   				<mat-form-field
+		          class="input"
+		        >
+		          <input 
+		            matInput 
+		            placeholder="Track title"
+		            >
+		        </mat-form-field>
 
-	        <mat-form-field
-	          class=""
-	        >
-	          <mat-label 
-	            class=""
-	          >
-	            Artist
-	          </mat-label>
-	          <input 
-	            matInput 
-	            >
-	        </mat-form-field>
-   		</div>
-   		<div class="avatarDiv">
-   			
+		        <mat-form-field
+		          class="input"
+		        >
+		          <input 
+		            matInput 
+		            placeholder="Artist"
+		            >
+		        </mat-form-field>
+   			</div>
+   		
+	   		<div class="avatarDiv">
+	   			<div mat-card-avatar class="example-header-image"></div>
+	   		</div>
    		</div>
    		<div class="fileDrop">
-   			
+	   		<mat-form-field
+	          class="textarea"      
+	          floatLabel="always"
+	        >
+				<textarea 
+		            matInput 
+		            placeholder="Lyrics"
+		            class="textareaInput"
+		            ></textarea>
+	        </mat-form-field>
    		</div>
 
 
     </mat-tab>
     <mat-tab label="Extra info">
+    	<div class="inputsContainer">
     	   	 <mat-form-field
-          class=""
+          class="input"
+          floatLabel="always"
         >
-          <mat-label 
-            class=""
-          >
-            Tags
-          </mat-label>
           <input 
-            matInput 
-            >
+	            matInput 
+	            placeholder="Tags"
+	            >
         </mat-form-field>
 
         <mat-form-field
-          class=""
+          class="textarea"      
+          floatLabel="always"
         >
-          <mat-label 
-            class=""
-          >
-            Lyrics
-          </mat-label>
-          <input 
-            matInput 
-            >
+			<textarea 
+	            matInput 
+		            matTextareaAutosize
+		            matAutosizeMaxRows="11"
+		            matAutosizeMinRows="11"
+	            placeholder="Lyrics"
+	            class="textareaInput"
+	            ></textarea>
         </mat-form-field>
 
-                <mat-form-field
-          class=""
+        <mat-form-field
+          class="textarea"      
+          floatLabel="always"
         >
-          <mat-label 
-            class=""
-          >
-            Translated yrics
-          </mat-label>
-          <input 
-            matInput 
-            >
+			<textarea
+	            matInput 
+	            		            matTextareaAutosize
+		            matAutosizeMaxRows="11"
+		            matAutosizeMinRows="11"
+	            placeholder="Translated lyrics"
+	      		class="textareaInput"
+	             ></textarea>
         </mat-form-field>
+        </div>
     </mat-tab>
   </mat-tab-group>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="onCancelClick()">No</button>
-  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
-  <button mat-button [mat-dialog-close]="true">Yes</button>
+	<div class="buttons">
+	  <button 
+	  	mat-button 
+	  	(click)="onCancelClick()">No</button>
+	  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+	  <button 
+	  mat-button 
+	  [mat-dialog-close]="true">Yes</button>
+	</div>
 </mat-dialog-actions>

@@ -9,7 +9,7 @@ import { MaterialLayoutComponent } from './material-layout/material-layout.compo
 import { SubmenuComponent } from './material-layout/submenu/submenu.component';
 import { TabModalComponent } from './tab-modal/tab-modal.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatDividerModule, MatAutocompleteModule, MatInputModule, MatTabsModule, MatDialogModule, MatSnackBarModule, MatTooltipModule, MatFormFieldModule } from '@angular/material';
+import { MatCardModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatDividerModule, MatAutocompleteModule, MatInputModule, MatTabsModule, MatDialogModule, MatSnackBarModule, MatTooltipModule, MatFormFieldModule } from '@angular/material';
 
 // Material 2
 import 'hammerjs';
@@ -68,6 +68,7 @@ interface StoreType {
     FormsModule,
     HttpClientModule,
     LayoutModule,
+    MatCardModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
