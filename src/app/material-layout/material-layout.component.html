@@ -28,7 +28,8 @@
     opened="true">
     <mat-nav-list>
       <a mat-list-item
-      class="menuMainItem">Repository</a>
+      class="menuMainItem"
+      (click)="onOpen()">Repository</a>
       <mat-divider></mat-divider>
       <submenu
        [children]="playlists"

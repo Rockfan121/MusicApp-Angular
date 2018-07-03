@@ -1,0 +1,87 @@
+<h2 mat-dialog-title>Upload file</h2>
+<mat-dialog-content>
+  <mat-tab-group>
+    <mat-tab label="Basic info">
+   		<div class="inputsContainer">
+   			<mat-form-field
+	          class=""
+	        >
+	          <mat-label 
+	            class=""
+	          >
+	            Track title
+	          </mat-label>
+	          <input 
+	            matInput 
+	            >
+	        </mat-form-field>
+
+	        <mat-form-field
+	          class=""
+	        >
+	          <mat-label 
+	            class=""
+	          >
+	            Artist
+	          </mat-label>
+	          <input 
+	            matInput 
+	            >
+	        </mat-form-field>
+   		</div>
+   		<div class="avatarDiv">
+   			
+   		</div>
+   		<div class="fileDrop">
+   			
+   		</div>
+
+
+    </mat-tab>
+    <mat-tab label="Extra info">
+    	   	 <mat-form-field
+          class=""
+        >
+          <mat-label 
+            class=""
+          >
+            Tags
+          </mat-label>
+          <input 
+            matInput 
+            >
+        </mat-form-field>
+
+        <mat-form-field
+          class=""
+        >
+          <mat-label 
+            class=""
+          >
+            Lyrics
+          </mat-label>
+          <input 
+            matInput 
+            >
+        </mat-form-field>
+
+                <mat-form-field
+          class=""
+        >
+          <mat-label 
+            class=""
+          >
+            Translated yrics
+          </mat-label>
+          <input 
+            matInput 
+            >
+        </mat-form-field>
+    </mat-tab>
+  </mat-tab-group>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">No</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button mat-button [mat-dialog-close]="true">Yes</button>
+</mat-dialog-actions>

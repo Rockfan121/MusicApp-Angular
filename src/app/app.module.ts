@@ -4,8 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MaterialLayoutComponent } from './material-layout/material-layout.component';
 import { SubmenuComponent } from './material-layout/submenu/submenu.component';
+import { TabModalComponent } from './tab-modal/tab-modal.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatDividerModule, MatAutocompleteModule, MatInputModule, MatTabsModule, MatDialogModule, MatSnackBarModule, MatTooltipModule, MatFormFieldModule } from '@angular/material';
 
@@ -54,7 +56,8 @@ interface StoreType {
     NoContentComponent,
     XLargeDirective,
     MaterialLayoutComponent,
-    SubmenuComponent
+    SubmenuComponent,
+    TabModalComponent
   ],
   /**
    * Import Angular's modules.
@@ -90,6 +93,9 @@ interface StoreType {
      * This is a simple example, a big app should probably implement some logic
      */
     ...environment.showDevModule ? [ DevModuleModule ] : [],
+  ],
+  entryComponents: [
+    TabModalComponent,
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.
