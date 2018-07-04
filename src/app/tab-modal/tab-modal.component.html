@@ -20,11 +20,16 @@
 		          class="input"
 		        >
 		          <input 
-		            matInput 
 		            placeholder="Artist"
+		            matInput 
+		            [formControl]="myControl"
 		            [(ngModel)]="data.artist"
+		            [matAutocomplete]="auto"
 		            >
 		        </mat-form-field>
+		        <mat-autocomplete #auto="matAutocomplete">
+		        	<mat-option *ngFor="let option of filteredArtists | async" [value]="option">{{option}}</mat-option>
+		        </mat-autocomplete>
    			</div>
    		
 	   		<div class="avatarDiv">

@@ -27,7 +27,12 @@ nav a {
 
   
 
-  @include angular-material-theme($dark-theme);
+@include angular-material-theme($dark-theme);
+
+.snackbar {
+  background-color: mat-color($dark-accent, darker);
+  color: mat-color($dark-accent, darker-contrast);
+}
 
 
 body {

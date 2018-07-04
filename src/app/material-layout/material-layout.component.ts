@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import {MatDialog} from '@angular/material';
+import {FormControl} from '@angular/forms';
+import {MatDialog, MatSnackBar} from '@angular/material';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 import { ARTISTS } from 'assets/mock-data/artists';
 import { PLAYLISTS } from 'assets/mock-data/playlists';
@@ -24,7 +27,7 @@ export class MaterialLayoutComponent {
 
   track: Track = new Track("track1", "artist2", "tag1", "line1", "linijka1", "");
     
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, public snackBar: MatSnackBar) {}
 
   onOpen(): void {
     const dialogRef = this.dialog.open(TabModalComponent, {
@@ -34,9 +37,7 @@ export class MaterialLayoutComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result)
-        console.log('new track has been added');
-      else
-        console.log('the window has been closed');
+        this.snackBar.open('New track has been added', '', {duration: 2000, panelClass: "snackbar"});
     });
   }
   
