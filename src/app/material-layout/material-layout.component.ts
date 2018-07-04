@@ -25,7 +25,7 @@ export class MaterialLayoutComponent {
   artistsName = "Artists";
   artistsItem = "artist";
 
-  track: Track = new Track("track1", "artist2", "tag1", "line1", "linijka1", "");
+  track: Track = new Track("track1", "artist2", "tag1", "line1", "linijka1", []);
     
   constructor(public dialog: MatDialog, public snackBar: MatSnackBar) {}
 
@@ -37,7 +37,7 @@ export class MaterialLayoutComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result)
-        this.snackBar.open('New track has been added', '', {duration: 2000, panelClass: "snackbar"});
+        this.snackBar.open('New track has been added', '', {duration: 1500, panelClass: "snackbar"});
     });
   }
   

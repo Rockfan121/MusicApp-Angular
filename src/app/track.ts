@@ -1,3 +1,5 @@
+import { UploadFile } from 'ngx-file-drop';
+
 export class Track{
   constructor (
 	public title: string,
@@ -5,5 +7,5 @@ export class Track{
 	public tags: string,
 	public lyrics: string,
 	public translatedLyrics: string,
-  	public file: any) {}
+  	public file: UploadFile[]) {}
 }

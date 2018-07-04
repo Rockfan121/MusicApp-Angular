@@ -3,6 +3,7 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { UploadEvent, UploadFile, FileSystemFileEntry } from 'ngx-file-drop';
 
 import { Track } from 'app/track';
 import { ARTISTS } from 'assets/mock-data/artists';
@@ -19,6 +20,8 @@ export class TabModalComponent implements DoCheck, OnInit{
   artists = ARTISTS;
   filteredArtists: Observable<string[]>;
 
+  className: string = "fileDrop";
+  content: string;
   constructor(
     public dialogRef: MatDialogRef<TabModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Track) {
@@ -30,6 +33,10 @@ this.filteredArtists = this.myControl.valueChanges
         startWith(''),
         map(value => this._filter(value))
       );
+
+      this.content = (this.data.file.length === 0) 
+      ? "Drag some track file here!"
+      : "You've successfully uploaded a file!";
   }
 
   _filter(value: string): string[] {
@@ -46,8 +53,36 @@ this.filteredArtists = this.myControl.valueChanges
     }
 
     ngDoCheck() {
-      console.log(this.filteredArtists);
-      this.isDisabled = (this.data.title === "" || this.data.file === "");
+      console.log(this.data.file);
+      this.isDisabled = (this.data.title === "" || this.data.file.length === 0);
     }
+ 
+  public dropped(event: UploadEvent) {
+    this.data.file = event.files;
+    for (const droppedFile of event.files) {
+
+      if (droppedFile.fileEntry.isFile) {
+        const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
+        fileEntry.file((file: File) => {
+ 
+          // Here you can access the real file
+          console.log(droppedFile.relativePath, file);
+ 
+        });
+        this.className="fileDrop.dropped";
+        this.content = "You've successfully uploaded a file!";
+      }
+    }
+  }
+ 
+  public fileOver(event){
+    console.log(event);
+    this.className="fileDrop.over";
+  }
+ 
+  public fileLeave(event){
+    console.log(event);
+    this.className="fileDrop";
+  }
 
 }

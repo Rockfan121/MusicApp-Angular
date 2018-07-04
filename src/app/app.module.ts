@@ -10,6 +10,7 @@ import { SubmenuComponent } from './material-layout/submenu/submenu.component';
 import { TabModalComponent } from './tab-modal/tab-modal.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatCardModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatDividerModule, MatAutocompleteModule, MatInputModule, MatTabsModule, MatDialogModule, MatSnackBarModule, MatTooltipModule, MatFormFieldModule } from '@angular/material';
+import { FileDropModule } from 'ngx-file-drop';
 
 // Material 2
 import 'hammerjs';
@@ -83,6 +84,7 @@ interface StoreType {
     MatDialogModule, 
     MatSnackBarModule, 
     MatTooltipModule,
+    FileDropModule,
 
     RouterModule.forRoot(ROUTES, {
       useHash: Boolean(history.pushState) === false,

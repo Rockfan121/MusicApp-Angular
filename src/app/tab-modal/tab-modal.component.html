@@ -37,19 +37,13 @@
 	   		</div>
    		</div>
    		<div class="fileDrop">
-	   		<mat-form-field
-	          class="textarea"      
-	          floatLabel="always"
-	        >
-				<textarea 
-		            matInput 
-		            placeholder="Lyrics"
-		            class="textareaInput"
-		            [(ngModel)]="data.file"
-		            ></textarea>
-	        </mat-form-field>
-   		</div>
-
+		<file-drop 
+		(onFileDrop)="dropped($event)" 
+		    (onFileOver)="fileOver($event)" 
+		    (onFileLeave)="fileLeave($event)">
+		    <div style="text-align: center; display: block; margin: auto; color:lime;">{{content}}</div>
+		    </file-drop>
+		</div>
 
     </mat-tab>
     <mat-tab label="Extra info">
