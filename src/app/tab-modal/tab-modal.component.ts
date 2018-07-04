@@ -12,7 +12,7 @@ import { ARTISTS } from 'assets/mock-data/artists';
   templateUrl: './tab-modal.component.html',
   styleUrls: ['./tab-modal.component.scss']
 })
-export class TabModalComponent implements DoCheck{
+export class TabModalComponent implements DoCheck, OnInit{
 
   myControl = new FormControl();
   isDisabled: boolean = true;
@@ -25,7 +25,11 @@ export class TabModalComponent implements DoCheck{
   }
 
     ngOnInit() {
-
+this.filteredArtists = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
   }
 
   _filter(value: string): string[] {
@@ -44,11 +48,6 @@ export class TabModalComponent implements DoCheck{
     ngDoCheck() {
       console.log(this.filteredArtists);
       this.isDisabled = (this.data.title === "" || this.data.file === "");
-      this.filteredArtists = this.myControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
     }
 
 }

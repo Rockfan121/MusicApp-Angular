@@ -9,11 +9,12 @@
           </mat-label>
           <input 
             matInput 
+            [formControl]="myControl"
             [placeholder]="searchText"
             >
         </mat-form-field>
         <div class="subList">
-          <a mat-list-item *ngFor="let item of children">{{ item }}</a>
+          <a mat-list-item *ngFor="let item of filteredItems | async">{{ item }}</a>
         </div>
         <mat-divider class="smallDivider"></mat-divider>
         <a mat-list-item href="#">
