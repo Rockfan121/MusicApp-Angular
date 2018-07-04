@@ -5,6 +5,7 @@ import { ARTISTS } from 'assets/mock-data/artists';
 import { PLAYLISTS } from 'assets/mock-data/playlists';
 import { SubmenuComponent } from './submenu/submenu-component';
 import { TabModalComponent } from '../tab-modal/tab-modal.component';
+import { Track } from 'app/track';
 
 @Component({
   selector: 'material-layout',
@@ -20,25 +21,23 @@ export class MaterialLayoutComponent {
   playlistsItem = "playlist";
   artistsName = "Artists";
   artistsItem = "artist";
+
+  track: Track = new Track("track1", "artist2", "tag1", "line1", "linijka1", "");
     
   constructor(public dialog: MatDialog) {}
 
   onOpen(): void {
     const dialogRef = this.dialog.open(TabModalComponent, {
       width: '600px',
-      data: {title: "",
-            artist: "",
-            tags: "",  
-            lyrics: "",
-            translatedLyrics: "",
-            file: ""
-          }
+      data: this.track
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      //dodac wyskakiwanie snackbara
+      if (result)
+        console.log('new track has been added');
+      else
+        console.log('the window has been closed');
     });
   }
   
-  }
+}

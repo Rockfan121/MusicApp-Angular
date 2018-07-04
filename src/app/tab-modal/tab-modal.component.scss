@@ -44,9 +44,20 @@
 	}
 
 	.buttons {
-		//paddingLeft:'10px',
 		float: right;
 		margin-left: auto;
 		margin-right:10px;
+		
+		.ok {
+			background-color: mat-color($dark-primary);
+		}
+		.cancel {
+			background-color: mat-color($dark-accent);
+		}
+	}
+
+
+	.tab {
 		background-color: mat-color($dark-primary);
+		color: mat-color($dark-warn);
 	}

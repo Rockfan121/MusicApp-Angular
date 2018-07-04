@@ -12,6 +12,7 @@
 		          <input 
 		            matInput 
 		            placeholder="Track title"
+		            [(ngModel)]="data.title"
 		            >
 		        </mat-form-field>
 
@@ -21,6 +22,7 @@
 		          <input 
 		            matInput 
 		            placeholder="Artist"
+		            [(ngModel)]="data.artist"
 		            >
 		        </mat-form-field>
    			</div>
@@ -38,6 +40,7 @@
 		            matInput 
 		            placeholder="Lyrics"
 		            class="textareaInput"
+		            [(ngModel)]="data.file"
 		            ></textarea>
 	        </mat-form-field>
    		</div>
@@ -53,6 +56,7 @@
           <input 
 	            matInput 
 	            placeholder="Tags"
+	            [(ngModel)]="data.tags"
 	            >
         </mat-form-field>
 
@@ -67,6 +71,7 @@
 		            matAutosizeMinRows="11"
 	            placeholder="Lyrics"
 	            class="textareaInput"
+	            [(ngModel)]="data.lyrics"
 	            ></textarea>
         </mat-form-field>
 
@@ -81,6 +86,7 @@
 		            matAutosizeMinRows="11"
 	            placeholder="Translated lyrics"
 	      		class="textareaInput"
+	      		[(ngModel)]="data.translatedLyrics"
 	             ></textarea>
         </mat-form-field>
         </div>
@@ -91,10 +97,12 @@
 	<div class="buttons">
 	  <button 
 	  	mat-button 
-	  	(click)="onCancelClick()">No</button>
-	  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+	  	class="cancel" 
+	  	(click)="onCancelClick()">Cancel</button>
 	  <button 
-	  mat-button 
-	  [mat-dialog-close]="true">Yes</button>
+		  mat-button 
+		  class="ok" 
+		  [disabled]="isDisabled" 
+		  (click)="onOkClick()">Add track</button>
 	</div>
 </mat-dialog-actions>
