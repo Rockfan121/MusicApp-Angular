@@ -1,9 +1,10 @@
-import {Component, Inject, DoCheck, OnInit} from '@angular/core';
-import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {Component, Inject, DoCheck, OnInit, AfterViewInit} from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { UploadEvent, UploadFile, FileSystemFileEntry } from 'ngx-file-drop';
+import { ImgModalComponent } from '../img-modal/img-modal.component';
 
 import { Track } from 'app/track';
 import { ARTISTS } from 'assets/mock-data/artists';
@@ -13,7 +14,7 @@ import { ARTISTS } from 'assets/mock-data/artists';
   templateUrl: './tab-modal.component.html',
   styleUrls: ['./tab-modal.component.scss']
 })
-export class TabModalComponent implements DoCheck, OnInit{
+export class TabModalComponent implements DoCheck, OnInit, AfterViewInit{
 
   myControl = new FormControl();
   isDisabled: boolean = true;
@@ -22,13 +23,14 @@ export class TabModalComponent implements DoCheck, OnInit{
 
   className: string = "fileDrop";
   content: string;
+  imgPath: string;
   constructor(
     public dialogRef: MatDialogRef<TabModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Track) {
-  }
+    @Inject(MAT_DIALOG_DATA) public data: Track,
+    public dialog: MatDialog) {}
 
     ngOnInit() {
-this.filteredArtists = this.myControl.valueChanges
+      this.filteredArtists = this.myControl.valueChanges
       .pipe(
         startWith(''),
         map(value => this._filter(value))
@@ -36,7 +38,7 @@ this.filteredArtists = this.myControl.valueChanges
 
       this.content = (this.data.file.length === 0) 
       ? "Drag some track file here!"
-      : "You've successfully uploaded a file!";
+      : "You've successfully uploaded a file!";     
   }
 
   _filter(value: string): string[] {
@@ -52,9 +54,36 @@ this.filteredArtists = this.myControl.valueChanges
       this.dialogRef.close(true);
     }
 
+    onImgClick(): void {
+      console.log(this.data.image);
+      const dialogRef = this.dialog.open(ImgModalComponent, {
+      data: {path: this.data.image}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result){
+        this.data.image = result;
+        this.imgPath = (this.data.image === "") 
+        ? "https://material.angular.io/assets/img/examples/shiba1.jpg"
+        : this.data.image;
+        console.log(this.data.image);
+
+        document.getElementById("trackImg").style.backgroundImage = ("url(\'" + this.imgPath + "\')");        
+
+      }
+    });
+    }
+
     ngDoCheck() {
-      console.log(this.data.file);
-      this.isDisabled = (this.data.title === "" || this.data.file.length === 0);
+      this.isDisabled = (this.data.title === "" || this.data.file.length === 0); 
+    }
+
+    ngAfterViewInit(){
+      this.imgPath = (this.data.image === "") 
+        ? "https://material.angular.io/assets/img/examples/shiba1.jpg"
+        : this.data.image;
+
+      document.getElementById("trackImg").style.backgroundImage = ("url(\'" + this.imgPath + "\')");  
     }
  
   public dropped(event: UploadEvent) {

@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialLayoutComponent } from './material-layout/material-layout.component';
 import { SubmenuComponent } from './material-layout/submenu/submenu.component';
 import { TabModalComponent } from './tab-modal/tab-modal.component';
+import { ImgModalComponent } from './img-modal/img-modal.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatCardModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatDividerModule, MatAutocompleteModule, MatInputModule, MatTabsModule, MatDialogModule, MatSnackBarModule, MatTooltipModule, MatFormFieldModule } from '@angular/material';
 import { FileDropModule } from 'ngx-file-drop';
@@ -58,7 +59,8 @@ interface StoreType {
     XLargeDirective,
     MaterialLayoutComponent,
     SubmenuComponent,
-    TabModalComponent
+    TabModalComponent,
+    ImgModalComponent
   ],
   /**
    * Import Angular's modules.
@@ -100,6 +102,7 @@ interface StoreType {
   ],
   entryComponents: [
     TabModalComponent,
+    ImgModalComponent,
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.

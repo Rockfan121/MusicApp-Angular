@@ -19,6 +19,9 @@
 	}
 	.searchInput {
 		cursor: pointer;
+		&:focus {
+			cursor: text;
+		}
 	}
 	.searchLabel {
 		font-weight: bold;

@@ -33,7 +33,12 @@
    			</div>
    		
 	   		<div class="avatarDiv">
-	   			<div mat-card-avatar class="example-header-image"></div>
+	   			<div 
+	   				mat-card-avatar 
+	   				class="example-header-image" 
+	   				id="trackImg"
+	   				(click)="onImgClick()"
+	   				></div>
 	   		</div>
    		</div>
    		<div class="fileDrop">
@@ -41,7 +46,7 @@
 		(onFileDrop)="dropped($event)" 
 		    (onFileOver)="fileOver($event)" 
 		    (onFileLeave)="fileLeave($event)">
-		    <div style="text-align: center; display: block; margin: auto; color:lime;">{{content}}</div>
+		    <div class="fileDropText">{{content}}</div>
 		    </file-drop>
 		</div>
 

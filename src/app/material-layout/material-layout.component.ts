@@ -25,7 +25,13 @@ export class MaterialLayoutComponent {
   artistsName = "Artists";
   artistsItem = "artist";
 
-  track: Track = new Track("track1", "artist2", "tag1", "line1", "linijka1", []);
+  track: Track = new Track("track1", 
+    "artist2", 
+    "https://www.w3schools.com/images/colorpicker.png", 
+    "tag1", 
+    "line1", 
+    "linijka1", 
+    []);
     
   constructor(public dialog: MatDialog, public snackBar: MatSnackBar) {}
 
