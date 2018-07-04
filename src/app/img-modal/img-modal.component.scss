@@ -1,4 +1,25 @@
+@import '~@angular/material/theming';
+@import 'styles/musicTheme.scss';
+
+	.text {
+		font-size: 14px;
+	}
 	.input {
 		display: block;
-		margin-top: 10px;
+		margin-top: 20px;
+	}
+
+	.buttons {
+		float: right;
+		margin-left: auto;
+		margin-right:10px;
+		
+		.ok {
+			background-color: mat-color($dark-primary);
+			font-weight: bold;
+		}
+		.cancel {
+			background-color: mat-color($dark-accent, 700);
+			font-weight: bold;
+		}
 	}

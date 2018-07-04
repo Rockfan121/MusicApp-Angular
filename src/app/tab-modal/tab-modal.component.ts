@@ -84,6 +84,9 @@ export class TabModalComponent implements DoCheck, OnInit, AfterViewInit{
         : this.data.image;
 
       document.getElementById("trackImg").style.backgroundImage = ("url(\'" + this.imgPath + "\')");  
+
+      document.getElementById("dropZone").style.borderColor = "#76FF03";
+      document.getElementById("dropZone").style.borderWidth = "4px";
     }
  
   public dropped(event: UploadEvent) {

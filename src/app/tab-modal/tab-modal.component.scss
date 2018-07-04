@@ -51,9 +51,11 @@
 		
 		.ok {
 			background-color: mat-color($dark-primary);
+			font-weight: bold;
 		}
 		.cancel {
-			background-color: mat-color($dark-accent);
+			background-color: mat-color($dark-accent, 700);
+			font-weight: bold;
 		}
 	}
 
@@ -63,7 +65,7 @@
 	}
 
   .fileDrop {
-    height: 100px;
+    height: 120px;
     margin-top: 20px;
     width: 100%;
   }
@@ -72,5 +74,5 @@
   	text-align: center; 
   	display: block; 
   	margin: auto; 
-  	color: mat-color($dark-primary);
+  	color: mat-color($dark-warn);
   }
