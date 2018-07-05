@@ -8,6 +8,7 @@ import { ARTISTS } from 'assets/mock-data/artists';
 import { PLAYLISTS } from 'assets/mock-data/playlists';
 import { SubmenuComponent } from './submenu/submenu-component';
 import { TabModalComponent } from '../tab-modal/tab-modal.component';
+import { RepositoryComponent } from './repository/repository.component';
 import { Track } from 'app/track';
 
 @Component({

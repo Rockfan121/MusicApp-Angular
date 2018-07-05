@@ -61,7 +61,7 @@ export class TabModalComponent implements DoCheck, OnInit, AfterViewInit{
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result){
+      if (result !== undefined){
         this.data.image = result;
         this.imgPath = (this.data.image === "") 
         ? "https://material.angular.io/assets/img/examples/shiba1.jpg"

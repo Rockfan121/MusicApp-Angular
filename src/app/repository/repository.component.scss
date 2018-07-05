@@ -1,0 +1,97 @@
+@import '~@angular/material/theming';
+@import 'styles/musicTheme.scss';
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-column-select {
+  overflow: visible;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+  margin: 10px;
+}
+
+.img {
+  height: 40px;
+  width:40px;
+  border-radius:50%;
+}
+
+
+.header {
+    color: #4CAF50;
+  }
+
+  .h2 {
+  	font-size: 40px;
+    text-align: left;
+    margin-left: 20px;
+  }
+  .h3 {
+  	margin:20px 20px;
+  	font-size: 25px;
+  	color: mat-color($dark-primary);
+    text-align: left;
+  }
+
+    .h4 {
+  	margin:20px 20px;
+  	font-size: 15px;
+    text-align: left;
+  }
+    .btn {
+  	float: left;
+    margin: 10px;
+    font-weight: bold;
+    background-color: mat-color($dark-accent);
+    color: mat-color($dark-accent, default-contrast);
+  }
+
+    .btn_create {
+          float: left;
+    margin: 10px;
+    font-weight: bold;
+      background-color: mat-color($dark-primary);
+    }
+
+    .btn_delete {
+          float: left;
+    margin: 10px;
+    font-weight: bold;
+      background-color: mat-color($dark-warn);
+      color: mat-color($dark-warn, lighter-contrast);
+    }
+  
+  .addIcon {
+		font-weight: 800;
+		font-size: 30px;
+		color: mat-color($dark-primary);
+		display: inline;
+		float: left;
+		margin-right: 20px;
+	}
+
+	.searchIcon {
+		margin-top: 10px;
+	}
+
+	.input {
+		margin-left: 20px;
+    width: 200px;
+	}
+
+  .buttons {
+    margin-top: 10px;
+    display: block;
+  }

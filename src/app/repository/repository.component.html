@@ -1,0 +1,83 @@
+
+      <h2 class="h2">Your songs repository</h2>
+      
+      <h3 class="h3">
+        <mat-icon class="addIcon">add_circle_outline</mat-icon>
+         Upload new file</h3>
+
+      <h4 class="h4">
+      <mat-icon class="searchIcon">search</mat-icon>
+      &nbsp;&nbsp;Search tracks: 
+
+      <mat-form-field>
+        <input matInput 
+        (keyup)="applyFilter($event.target.value)"
+        class="input">
+      </mat-form-field>
+      </h4>
+
+<div class="example-container">
+<mat-table #table [dataSource]="dataSource" class="mat-table">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <ng-container matColumnDef="select" class="mat-column-select">
+    <mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()">
+      </mat-checkbox>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [checked]="selection.isSelected(row)">
+      </mat-checkbox>
+    </mat-cell>
+  </ng-container>
+
+
+  <ng-container matColumnDef="image">
+    <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+    <mat-cell *matCellDef="let element"> 
+      <img [src]="element.image" class="img" /> </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="artist">
+    <mat-header-cell *matHeaderCellDef> Artist </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.artist}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="duration">
+    <mat-header-cell *matHeaderCellDef> Duration </mat-header-cell>
+    <mat-cell *matCellDef="let element"> 05:00 </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<div class="buttons">
+    <button 
+      mat-button 
+      class="btn" 
+      [disabled]="selection.selected.length !== 1"
+      >Edit track data</button>
+    <button 
+      mat-button 
+      class="btn_create" 
+      [disabled]="selection.selected.length === 0"
+      (click)="onCreateClick()"
+      >Create new playlist</button>
+    <button 
+      mat-button 
+      class="btn_delete" 
+      [disabled]="selection.selected.length === 0"
+      (click)="onDeleteClick()"
+      >Delete tracks</button>
+</div>

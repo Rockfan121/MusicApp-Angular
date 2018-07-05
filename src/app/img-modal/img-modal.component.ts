@@ -19,7 +19,10 @@ export class ImgModalComponent implements OnInit{
   }
 
     onClose(): void {
-      this.dialogRef.close(this.data.path);
+      this.dialogRef.close();
+    }
+    onOkClick(): void {
+      this.dialogRef.close(this.data.path); 
     }
 
 }
