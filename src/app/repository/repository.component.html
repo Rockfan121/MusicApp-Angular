@@ -1,7 +1,7 @@
 
       <h2 class="h2">Your songs repository</h2>
       
-      <h3 class="h3">
+      <h3 class="h3" (click)="onNewOpen()">
         <mat-icon class="addIcon">add_circle_outline</mat-icon>
          Upload new file</h3>
 
@@ -41,7 +41,7 @@
   <ng-container matColumnDef="image">
     <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
     <mat-cell *matCellDef="let element"> 
-      <img [src]="element.image" class="img" /> </mat-cell>
+      <img [src]="element.image==='' ? imgDefPath : element.image" class="img" /> </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="title">
@@ -67,6 +67,7 @@
       mat-button 
       class="btn" 
       [disabled]="selection.selected.length !== 1"
+      (click)="onEditOpen()"
       >Edit track data</button>
     <button 
       mat-button 

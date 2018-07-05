@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import { Track } from 'app/track';
 import { TRACKS } from 'assets/mock-data/tracks';
+import { TabModalComponent } from '../tab-modal/tab-modal.component';
+
+import {MatDialog, MatSnackBar} from '@angular/material';
 
 import {MatTableDataSource} from '@angular/material';
 import {SelectionModel } from '@angular/cdk/collections';
@@ -19,8 +22,56 @@ export class RepositoryComponent implements OnInit {
 
   initialSelection = [];
   selection = new SelectionModel<Track>(true, this.initialSelection);
+  imgDefPath = "https://material.angular.io/assets/img/examples/shiba1.jpg";
 
-  constructor() {}
+    track: Track = new Track("track1", 
+    "artist2", 
+    "https://www.w3schools.com/images/colorpicker.png", 
+    "tag1", 
+    "line1", 
+    "linijka1", 
+    []);
+    
+  constructor(public dialog: MatDialog, public snackBar: MatSnackBar) {}
+
+  onNewOpen(): void {
+    const dialogRef = this.dialog.open(TabModalComponent, {
+      width: '600px',
+      data: this.track
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result){
+              TRACKS.push(result);
+            this.reinit();
+              this.snackBar.open('New track has been added', '', {duration: 1500, panelClass: "snackbar"});
+          }});
+  }
+
+  onEditOpen(): void {
+    const dialogRef = this.dialog.open(TabModalComponent, {
+      width: '600px',
+      data: this.selection.selected[0]
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result){
+
+        var selectedRow = this.selection.selected[0];
+        var allRows = this.dataSource.data;
+        for (var j = 0; j < allRows.length; j++){
+          if ((selectedRow.title === allRows[j].title) && (selectedRow.artist === allRows[j].artist)){
+            TRACKS[j] = result;
+            break;
+          }
+        }
+
+
+      this.reinit();
+        this.snackBar.open('Track has been edited', '', {duration: 1500, panelClass: "snackbar"});
+      }
+    });
+  }
 
   public ngOnInit() {
   }
@@ -49,6 +100,13 @@ masterToggle() {
     console.log(this.selection);
   }
 
+  reinit() {
+    this.dataSource = new MatTableDataSource<Track>(TRACKS);
+
+  this.initialSelection = [];
+  this.selection = new SelectionModel<Track>(true, this.initialSelection);
+
+  }
   onDeleteClick() {
     var selectedRows = this.selection.selected;
     var allRows = this.dataSource.data;
@@ -66,9 +124,6 @@ masterToggle() {
     for (var i = toBeRemoved.length-1; i >=0; i--){
       TRACKS.splice(toBeRemoved[i],1);
     }
-      this.dataSource = new MatTableDataSource<Track>(TRACKS);
-
-  this.initialSelection = [];
-  this.selection = new SelectionModel<Track>(true, this.initialSelection);
+    this.reinit();
   }
 }

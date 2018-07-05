@@ -48,10 +48,10 @@ export class TabModalComponent implements DoCheck, OnInit, AfterViewInit{
   }
 
     onCancelClick(): void {
-      this.dialogRef.close(false);
+      this.dialogRef.close();
     }
     onOkClick(): void {
-      this.dialogRef.close(true);
+      this.dialogRef.close(this.data);
     }
 
     onImgClick(): void {
