@@ -24,12 +24,12 @@ export class RepositoryComponent implements OnInit {
   selection = new SelectionModel<Track>(true, this.initialSelection);
   imgDefPath = "https://material.angular.io/assets/img/examples/shiba1.jpg";
 
-    track: Track = new Track("track1", 
-    "artist2", 
+    track: Track = new Track("", 
+    "", 
     "https://www.w3schools.com/images/colorpicker.png", 
-    "tag1", 
-    "line1", 
-    "linijka1", 
+    "", 
+    "", 
+    "", 
     []);
     
   constructor(public dialog: MatDialog, public snackBar: MatSnackBar) {}
@@ -41,11 +41,20 @@ export class RepositoryComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.track = new Track("", 
+    "", 
+    "https://www.w3schools.com/images/colorpicker.png", 
+    "", 
+    "", 
+    "", 
+    []);
+      console.log("closed");
       if (result){
               TRACKS.push(result);
             this.reinit();
               this.snackBar.open('New track has been added', '', {duration: 1500, panelClass: "snackbar"});
           }});
+    
   }
 
   onEditOpen(): void {
